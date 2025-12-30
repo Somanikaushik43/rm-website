@@ -1,11 +1,12 @@
+// src/components/common/ScrollToTop.jsx
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-export default function SmoothScrollToTop() {
+export default function ScrollToTop() {
   const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    // If there's a hash (like #co-founders), scroll to that element
+    // If hash exists (e.g. #co-founders)
     if (hash) {
       setTimeout(() => {
         const element = document.querySelector(hash);
@@ -14,16 +15,8 @@ export default function SmoothScrollToTop() {
         }
       }, 100);
     } else {
-      // No hash, scroll to top
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "instant",
-          });
-        });
-      });
+      // Normal route change → scroll to top
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     }
   }, [pathname, hash]);
 

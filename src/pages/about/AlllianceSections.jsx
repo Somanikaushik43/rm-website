@@ -73,13 +73,13 @@ export default function AlliancePartnersSection() {
   const [selectedPartner, setSelectedPartner] = useState(null);
 
   const services = [
-    "Audit", "Accounting", "Tax", "Advisory", 
+    "Audit", "Accounting", "Tax", "Advisory",
     "Bookkeeping", "SOC Compliance", "Internal Controls", "Risk Management"
   ];
 
   return (
     <>
-      <section id="alliance-partners" className="relative overflow-hidden transition-colors duration-300 bg-white py-14 md:pt-20 md:pb-0 isolate dark:bg-black">
+      <section id="alliance-partners" className="relative overflow-hidden transition-colors duration-300 bg-surfaceLight dark:bg-surfaceDark py-14 md:pt-20 md:pb-0 isolate">
         <div className="px-6 mx-auto max-w-7xl lg:px-8">
           <motion.div
             variants={fadeInUp}
@@ -89,10 +89,10 @@ export default function AlliancePartnersSection() {
             className="mb-4 text-center"
           >
             <div className="flex items-start gap-3 mb-4">
-              <FaHandshake className="text-3xl text-orange-600 dark:text-[var(--accent-blue-light)]" />
-              <h2 className="text-3xl font-bold md:text-4xl">
+              <FaHandshake className="text-3xl text-brandPrimary dark:text-brandAccent" />
+              <h2 className="text-3xl font-bold md:text-4xl text-brandDark dark:text-white">
                 Strategic<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600 dark:from-[var(--accent-blue)] dark:to-[var(--accent-purple)]">Alliance Partners</span>
+                <span className="text-brandPrimary dark:text-brandAccent">Alliance Partners</span>
               </h2>
             </div>
           </motion.div>
@@ -102,7 +102,7 @@ export default function AlliancePartnersSection() {
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="max-w-2xl mb-12 text-base text-start text-stone-700 dark:text-white"
+            className="max-w-2xl mb-12 text-base text-start text-brandNavy dark:text-gray-400"
           >
             Collaborating with leading firms to deliver comprehensive solutions across audit, compliance, and consulting services.
           </motion.p>
@@ -115,7 +115,7 @@ export default function AlliancePartnersSection() {
                 initial="initial"
                 whileInView="animate"
                 viewport={{ once: true }}
-                className="bg-white border border-orange-200 dark:bg-zinc-800 dark:border-white/10 backdrop-blur-sm rounded-3xl p-8 relative overflow-hidden group cursor-pointer transition-all duration-500 hover:border-orange-500 hover:shadow-2xl hover:shadow-orange-500/20 dark:hover:border-[var(--accent-blue)]/50 dark:hover:shadow-[var(--accent-blue)]/20 hover:scale-[1.02]"
+                className="bg-surfaceLight dark:bg-surfaceDark border border-borderLight dark:border-borderDark backdrop-blur-sm rounded-3xl p-8 relative overflow-hidden group cursor-pointer transition-all duration-300 hover:border-brandGold dark:hover:border-brandAccent hover:shadow-2xl hover:-translate-y-1"
                 onClick={() => setSelectedPartner(partner)}
               >
                 <div className="relative z-10">
@@ -123,16 +123,16 @@ export default function AlliancePartnersSection() {
                     <img
                       src={partner.image}
                       alt={partner.name}
-                      className="w-32 h-32 rounded-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500 border-4 border-orange-600/30 dark:border-[var(--accent-blue)]/30 group-hover:border-orange-600/60 dark:group-hover:border-[var(--accent-blue)]/60"
+                      className="w-32 h-32 rounded-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-500 border-4 border-brandPrimary/30 dark:border-brandAccent/30 group-hover:border-brandPrimary/60 dark:group-hover:border-brandAccent/60"
                     />
                   </div>
-                  <h3 className="mb-2 text-2xl font-bold text-center transition-colors duration-500 text-stone-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-[var(--accent-blue-light)]">
+                  <h3 className="mb-2 text-2xl font-bold text-center transition-colors duration-500 text-brandDark dark:text-white group-hover:text-brandPrimary dark:group-hover:text-brandAccent">
                     {partner.shortName}
                   </h3>
-                  <p className="font-semibold mb-3 text-center text-orange-600 dark:text-[var(--accent-blue-light)]">{partner.title}</p>
-                  <p className="mb-6 text-sm leading-relaxed text-center text-stone-600 dark:text-white/70">{partner.description}</p>
+                  <p className="font-semibold mb-3 text-center text-brandPrimary dark:text-brandAccent">{partner.title}</p>
+                  <p className="mb-6 text-sm leading-relaxed text-center text-brandNavy dark:text-gray-400">{partner.description}</p>
                   <div className="flex justify-center">
-                    <span className="px-4 py-2 text-xs rounded-full bg-orange-100 border border-orange-300 text-orange-700 dark:bg-[var(--accent-blue)]/20 dark:border-[var(--accent-blue)]/40 dark:text-[var(--accent-blue-light)]">
+                    <span className="px-4 py-2 text-xs rounded-full bg-brandPrimary/10 dark:bg-brandAccent/20 border border-brandPrimary/30 dark:border-brandAccent/40 text-brandPrimary dark:text-brandAccent">
                       {partner.region}
                     </span>
                   </div>
@@ -143,17 +143,17 @@ export default function AlliancePartnersSection() {
 
           {/* ================= UPDATED ANIMATED RIBBON ================= */}
           <div className="relative flex items-center justify-center mt-20 mb-10 h-80">
-            
-            {/* RIBBON 1: Tilting Down Right (Orange/Amber in light, Blue/Purple in dark) */}
-            <div 
-              className="absolute w-[150%] z-20 flex items-center overflow-hidden border-y border-orange-200/30 dark:border-white/10"
-              style={{ 
+
+            {/* RIBBON 1: Tilting Down Right (Light mode) */}
+            <div
+              className="absolute w-[150%] z-20 flex items-center overflow-hidden border-y border-borderLight dark:hidden"
+              style={{
                 transform: "rotate(-4.5deg) translateY(-20px)",
-                transformOrigin:"left center",
-                background: "linear-gradient(90deg, #ea580c 0%, #d97706 50%, #ea580c 100%)",
+                transformOrigin: "left center",
+                backgroundColor: "#001F3F", // brandDark
                 height: "85px",
-                left:"-25%",
-                boxShadow: "0 25px 50px -12px rgba(0,0,0,0.7)"
+                left: "-25%",
+                boxShadow: "0 25px 50px -12px rgba(0, 31, 63, 0.4)"
               }}
             >
               <div className="flex whitespace-nowrap animate-scroll-left">
@@ -169,114 +169,16 @@ export default function AlliancePartnersSection() {
               </div>
             </div>
 
-            {/* RIBBON 2: Tilting Up Right (Amber gradient in light, Purple gradient in dark) */}
-            <div 
-              className="absolute w-[150%] z-10 flex items-center overflow-hidden"
-              style={{ 
-                transform: "rotate(3.5deg)  translateY(30px)",
-                transformOrigin:"right center",
-                background: "linear-gradient(90deg, #f59e0b 0%, #ea580c 100%)",
-                height: "85px",
-                left:"-25%",
-                boxShadow: "0 15x 35px rgba(0,0,0,0.5)"
-              }}
-            >
-              <div className="flex whitespace-nowrap animate-scroll-right">
-                {[...Array(4)].map((_, groupIndex) => (
-                  <div key={groupIndex} className="flex items-center gap-12 px-6">
-                    {services.map((service, idx) => (
-                      <span key={idx} className="text-2xl italic font-black tracking-tighter uppercase text-white/90">
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Dark mode ribbons - hidden in light mode */}
-            <div 
-              className="absolute w-[150%] z-20 flex items-center overflow-hidden border-y border-white/10 hidden dark:flex"
-              style={{ 
-                transform: "rotate(-4.5deg) translateY(-20px)",
-                transformOrigin:"left center",
-                background: "linear-gradient(90deg, #1e3a8a 0%, #6b21a8 50%, #1e3a8a 100%)",
-                height: "85px",
-                left:"-25%",
-                boxShadow: "0 25px 50px -12px rgba(0,0,0,0.7)"
-              }}
-            >
-              <div className="flex whitespace-nowrap animate-scroll-left">
-                {[...Array(4)].map((_, groupIndex) => (
-                  <div key={groupIndex} className="flex items-center gap-12 px-6">
-                    {services.map((service, idx) => (
-                      <span key={idx} className="text-3xl italic font-black tracking-tighter text-white uppercase">
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div 
-              className="absolute w-[150%] z-10 items-center overflow-hidden hidden dark:flex"
-              style={{ 
-                transform: "rotate(3.5deg)  translateY(30px)",
-                transformOrigin:"right center",
-                background: "linear-gradient(90deg, #4c1d95 0%, #172554 100%)",
-                height: "85px",
-                left:"-25%",
-                boxShadow: "0 15x 35px rgba(0,0,0,0.5)"
-              }}
-            >
-              <div className="flex whitespace-nowrap animate-scroll-right">
-                {[...Array(4)].map((_, groupIndex) => (
-                  <div key={groupIndex} className="flex items-center gap-12 px-6">
-                    {services.map((service, idx) => (
-                      <span key={idx} className="text-2xl italic font-black tracking-tighter uppercase text-white/90">
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Light mode ribbons - hidden in dark mode */}
-            <div 
-              className="absolute w-[150%] z-20 flex items-center overflow-hidden border-y border-orange-200/30 dark:hidden"
-              style={{ 
-                transform: "rotate(-4.5deg) translateY(-20px)",
-                transformOrigin:"left center",
-                background: "linear-gradient(90deg, #ea580c 0%, #d97706 50%, #ea580c 100%)",
-                height: "85px",
-                left:"-25%",
-                boxShadow: "0 25px 50px -12px rgba(234,88,12,0.3)"
-              }}
-            >
-              <div className="flex whitespace-nowrap animate-scroll-left">
-                {[...Array(4)].map((_, groupIndex) => (
-                  <div key={groupIndex} className="flex items-center gap-12 px-6">
-                    {services.map((service, idx) => (
-                      <span key={idx} className="text-3xl italic font-black tracking-tighter text-white uppercase">
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div 
+            {/* RIBBON 2: Tilting Up Right (Light mode) */}
+            <div
               className="absolute w-[150%] z-10 flex items-center overflow-hidden dark:hidden"
-              style={{ 
+              style={{
                 transform: "rotate(3.5deg)  translateY(30px)",
-                transformOrigin:"right center",
-                background: "linear-gradient(90deg, #f59e0b 0%, #ea580c 100%)",
+                transformOrigin: "right center",
+                backgroundColor: "#003366", // brandNavy
                 height: "85px",
-                left:"-25%",
-                boxShadow: "0 15px 35px rgba(245,158,11,0.3)"
+                left: "-25%",
+                boxShadow: "0 15px 35px rgba(0, 51, 102, 0.4)"
               }}
             >
               <div className="flex whitespace-nowrap animate-scroll-right">
@@ -284,6 +186,56 @@ export default function AlliancePartnersSection() {
                   <div key={groupIndex} className="flex items-center gap-12 px-6">
                     {services.map((service, idx) => (
                       <span key={idx} className="text-2xl italic font-black tracking-tighter uppercase text-white/90">
+                        {service}
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* RIBBON 1: Tilting Down Right (Dark mode) */}
+            <div
+              className="absolute w-[150%] z-20 items-center overflow-hidden border-y border-borderDark hidden dark:flex"
+              style={{
+                transform: "rotate(-4.5deg) translateY(-20px)",
+                transformOrigin: "left center",
+                backgroundColor: "#FFC000", // brandAccent
+                height: "85px",
+                left: "-25%",
+                boxShadow: "0 25px 50px -12px rgba(255, 192, 0, 0.4)"
+              }}
+            >
+              <div className="flex whitespace-nowrap animate-scroll-left">
+                {[...Array(4)].map((_, groupIndex) => (
+                  <div key={groupIndex} className="flex items-center gap-12 px-6">
+                    {services.map((service, idx) => (
+                      <span key={idx} className="text-3xl italic font-black tracking-tighter text-brandDark uppercase">
+                        {service}
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* RIBBON 2: Tilting Up Right (Dark mode) */}
+            <div
+              className="absolute w-[150%] z-10 items-center overflow-hidden hidden dark:flex"
+              style={{
+                transform: "rotate(3.5deg)  translateY(30px)",
+                transformOrigin: "right center",
+                backgroundColor: "#FFB800", // brandGold
+                height: "85px",
+                left: "-25%",
+                boxShadow: "0 15px 35px rgba(255, 184, 0, 0.4)"
+              }}
+            >
+              <div className="flex whitespace-nowrap animate-scroll-right">
+                {[...Array(4)].map((_, groupIndex) => (
+                  <div key={groupIndex} className="flex items-center gap-12 px-6">
+                    {services.map((service, idx) => (
+                      <span key={idx} className="text-2xl italic font-black tracking-tighter uppercase text-brandDark/90">
                         {service}
                       </span>
                     ))}
@@ -327,55 +279,55 @@ export default function AlliancePartnersSection() {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="relative w-full max-w-4xl max-h-[90vh] border shadow-2xl rounded-3xl overflow-y-auto bg-white dark:bg-zinc-900 border-orange-200 dark:border-white/10"
+              className="relative w-full max-w-4xl max-h-[90vh] border shadow-2xl rounded-3xl overflow-y-auto bg-surfaceLight dark:bg-surfaceDark border-borderLight dark:border-borderDark"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="p-8">
                 {/* Close button with higher z-index */}
-                <button 
-                  onClick={() => setSelectedPartner(null)} 
-                  className="absolute z-50 flex items-center justify-center w-10 h-10 transition-all rounded-full top-12 right-12 bg-orange-100 dark:bg-white/10 hover:bg-orange-200 dark:hover:bg-white/20 hover:scale-110"
+                <button
+                  onClick={() => setSelectedPartner(null)}
+                  className="absolute z-50 flex items-center justify-center w-10 h-10 transition-all rounded-full top-12 right-12 bg-brandPrimary/10 dark:bg-brandAccent/20 hover:bg-brandPrimary/20 dark:hover:bg-brandAccent/30 hover:scale-110"
                 >
-                  <FaTimes className="text-xl text-orange-600 dark:text-white" />
+                  <FaTimes className="text-xl text-brandPrimary dark:text-brandAccent" />
                 </button>
-                
+
                 {/* Header */}
                 <div className="flex flex-col items-center mb-8">
-                  <img 
-                    src={selectedPartner.image} 
-                    alt={selectedPartner.name} 
-                    className="w-32 h-32 rounded-full border-4 mb-4 border-orange-600 dark:border-[var(--accent-blue)]" 
+                  <img
+                    src={selectedPartner.image}
+                    alt={selectedPartner.name}
+                    className="w-32 h-32 rounded-full border-4 mb-4 border-brandPrimary dark:border-brandAccent"
                   />
-                  <h2 className="text-3xl font-bold text-center text-stone-900 dark:text-white mb-2">
+                  <h2 className="text-3xl font-bold text-center text-brandDark dark:text-white mb-2">
                     {selectedPartner.name}
                   </h2>
-                  <p className="text-lg font-semibold text-center text-orange-600 dark:text-[var(--accent-blue-light)] mb-3">
+                  <p className="text-lg font-semibold text-center text-brandPrimary dark:text-brandAccent mb-3">
                     {selectedPartner.title}
                   </p>
-                  <span className="px-4 py-2 text-sm rounded-full bg-orange-100 border border-orange-300 text-orange-700 dark:bg-[var(--accent-blue)]/20 dark:border-[var(--accent-blue)]/40 dark:text-[var(--accent-blue-light)]">
+                  <span className="px-4 py-2 text-sm rounded-full bg-brandPrimary/10 dark:bg-brandAccent/20 border border-brandPrimary/30 dark:border-brandAccent/40 text-brandPrimary dark:text-brandAccent">
                     {selectedPartner.region}
                   </span>
                 </div>
 
                 {/* Description */}
                 <div className="mb-8">
-                  <h3 className="text-xl font-bold mb-4 text-stone-900 dark:text-white">About</h3>
-                  <div className="leading-relaxed whitespace-pre-line text-stone-700 dark:text-white/80">
+                  <h3 className="text-xl font-bold mb-4 text-brandDark dark:text-white">About</h3>
+                  <div className="leading-relaxed whitespace-pre-line text-brandNavy dark:text-gray-400">
                     {selectedPartner.fullDescription}
                   </div>
                 </div>
 
                 {/* Services */}
                 <div className="mb-6">
-                  <h3 className="text-xl font-bold mb-4 text-stone-900 dark:text-white">Services Offered</h3>
+                  <h3 className="text-xl font-bold mb-4 text-brandDark dark:text-white">Services Offered</h3>
                   <div className="grid gap-3 md:grid-cols-2">
                     {selectedPartner.services.map((service, idx) => (
-                      <div 
+                      <div
                         key={idx}
-                        className="flex items-start gap-3 p-4 rounded-xl bg-orange-50 border border-orange-200 dark:bg-white/5 dark:border-white/10"
+                        className="flex items-start gap-3 p-4 rounded-xl bg-brandPrimary/10 dark:bg-brandAccent/10 border border-borderLight dark:border-borderDark"
                       >
-                        <div className="w-2 h-2 rounded-full bg-orange-600 dark:bg-[var(--accent-blue)] mt-2 flex-shrink-0"></div>
-                        <span className="text-sm text-stone-700 dark:text-white/80">{service}</span>
+                        <div className="w-2 h-2 rounded-full bg-brandPrimary dark:bg-brandAccent mt-2 flex-shrink-0"></div>
+                        <span className="text-sm text-brandNavy dark:text-gray-400">{service}</span>
                       </div>
                     ))}
                   </div>
@@ -383,12 +335,12 @@ export default function AlliancePartnersSection() {
 
                 {/* Website Link */}
                 {selectedPartner.website && (
-                  <div className="flex justify-center pt-6 border-t border-orange-200 dark:border-white/10">
+                  <div className="flex justify-center pt-6 border-t border-borderLight dark:border-borderDark">
                     <a
                       href={selectedPartner.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 rounded-full shadow-lg bg-gradient-to-r from-orange-600 to-amber-600 dark:from-[var(--accent-blue)] dark:to-[var(--accent-purple)] hover:shadow-xl hover:scale-105"
+                      className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white dark:text-brandDark transition-all duration-300 rounded-full shadow-lg bg-brandDark hover:bg-brandPrimary dark:bg-brandAccent dark:hover:bg-brandGold hover:shadow-xl hover:scale-105"
                     >
                       <FaExternalLinkAlt />
                       Visit Website

@@ -44,21 +44,21 @@ const WhyRiskMan = () => {
       className="
         relative w-full
         transition-colors duration-300
-        bg-orange-50/40
-        dark:bg-[#06071B]
+        bg-bgLight
+        dark:bg-bgDark
         py-20 md:py-28
       "
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* HEADER */}
         <div className="mb-14 text-left">
-          <p className="mb-3 text-sm tracking-wider uppercase text-stone-500 dark:text-white/50">
+          <p className="mb-3 text-sm tracking-wider uppercase font-semibold text-brandNavy dark:text-brandAccent">
             Why Choose Us
           </p>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-stone-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-brandDark dark:text-white">
             Why{" "}
-            <span className="bg-gradient-to-r from-orange-600 to-amber-600 dark:from-indigo-600 dark:to-blue-600 bg-clip-text text-transparent">
+            <span className="text-brandGold dark:text-brandAccent">
               RiskMan
             </span>
             ?
@@ -73,15 +73,16 @@ const WhyRiskMan = () => {
               className="
                 p-6 rounded-2xl
                 transition-all duration-300
-                border border-orange-200 bg-white shadow-lg
-                hover:-translate-y-1 hover:shadow-2xl
-                dark:bg-white/5 dark:border-white/10 dark:shadow-none
+                border border-borderLight bg-surfaceLight shadow-lg
+                hover:-translate-y-1 hover:shadow-2xl hover:border-brandGold
+                dark:bg-surfaceDark dark:border-borderDark dark:shadow-none
+                dark:hover:border-brandAccent
               "
             >
-              <h3 className="mb-3 text-xl font-bold text-orange-600 dark:text-indigo-600">
+              <h3 className="mb-3 text-xl font-bold text-brandGold dark:text-brandAccent">
                 {item.title}
               </h3>
-              <p className="text-stone-600 dark:text-white/70">
+              <p className="text-brandNavy dark:text-white/70">
                 {item.description}
               </p>
             </div>

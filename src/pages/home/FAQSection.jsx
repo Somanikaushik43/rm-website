@@ -41,8 +41,8 @@ const FAQSection = () => {
       className="
         relative w-full
         transition-colors duration-300
-        bg-orange-50/40
-        dark:bg-[#06071B]
+        bg-bgLight
+        dark:bg-bgDark
         py-20 md:py-28
       "
     >
@@ -50,11 +50,11 @@ const FAQSection = () => {
         <div className="grid items-start gap-12 lg:grid-cols-2">
           {/* LEFT – HEADER */}
           <div className="lg:sticky lg:top-24">
-            <p className="mb-3 text-sm tracking-[0.2em] uppercase text-stone-500 dark:text-white/50">
+            <p className="mb-3 text-sm tracking-[0.2em] uppercase font-semibold text-brandNavy dark:text-brandAccent">
               FAQ
             </p>
 
-            <h2 className="mb-6 text-3xl md:text-5xl font-bold leading-tight text-stone-900 dark:text-white">
+            <h2 className="mb-6 text-3xl md:text-5xl font-bold leading-tight text-brandDark dark:text-white">
               Clarity for
               <br />
               Your Critical
@@ -62,7 +62,7 @@ const FAQSection = () => {
               Questions
             </h2>
 
-            <p className="text-lg leading-relaxed text-stone-600 dark:text-white/70">
+            <p className="text-lg leading-relaxed text-brandNavy dark:text-white/70">
               Find clear, concise answers to common questions about our audit and
               assurance services, processes, and standards—designed to help you
               make informed decisions with confidence.
@@ -79,11 +79,11 @@ const FAQSection = () => {
                   key={index}
                   className={`
                     rounded-2xl overflow-hidden transition-all duration-300
-                    border bg-white shadow-md
-                    dark:bg-white/5 dark:border-white/10 dark:shadow-none
+                    border bg-surfaceLight shadow-md
+                    dark:bg-surfaceDark dark:shadow-none
                     ${isOpen 
-                      ? "border-orange-500/40 dark:border-indigo-500/40" 
-                      : "border-orange-200 dark:border-white/10 hover:bg-orange-50/50 dark:hover:bg-white/10"}
+                      ? "border-brandGold dark:border-brandAccent shadow-lg" 
+                      : "border-borderLight dark:border-borderDark hover:bg-brandGold/5 dark:hover:bg-brandAccent/5"}
                   `}
                 >
                   {/* QUESTION */}
@@ -93,10 +93,10 @@ const FAQSection = () => {
                   >
                     <h3
                       className={`
-                        text-base md:text-lg font-medium pr-4 transition-colors
+                        text-base md:text-lg font-semibold pr-4 transition-colors
                         ${isOpen
-                          ? "text-stone-900 dark:text-white"
-                          : "text-stone-600 dark:text-white/70 group-hover:text-stone-900 dark:group-hover:text-white"}
+                          ? "text-brandDark dark:text-white"
+                          : "text-brandNavy dark:text-white/70 group-hover:text-brandDark dark:group-hover:text-white"}
                       `}
                     >
                       {faq.question}
@@ -106,10 +106,10 @@ const FAQSection = () => {
                     <div
                       className={`
                         w-10 h-10 rounded-full flex items-center justify-center
-                        transition-all duration-300
+                        transition-all duration-300 flex-shrink-0
                         ${isOpen
-                          ? "bg-orange-600 dark:bg-indigo-600 rotate-180 text-white"
-                          : "bg-orange-200 text-orange-600 dark:bg-white/10 dark:text-white"}
+                          ? "bg-brandGold dark:bg-brandAccent rotate-180 text-white dark:text-brandDark"
+                          : "bg-brandGold/20 text-brandGold dark:bg-brandAccent/20 dark:text-brandAccent"}
                       `}
                     >
                       <ChevronDown size={18} />
@@ -124,8 +124,8 @@ const FAQSection = () => {
                     `}
                   >
                     <div className="px-5 pb-5 md:px-6">
-                      <div className="pt-4 border-t border-orange-200 dark:border-white/10">
-                        <p className="text-sm leading-relaxed text-stone-600 dark:text-white/70">
+                      <div className="pt-4 border-t border-borderLight dark:border-borderDark">
+                        <p className="text-sm leading-relaxed text-brandNavy dark:text-white/70">
                           {faq.answer}
                         </p>
                       </div>

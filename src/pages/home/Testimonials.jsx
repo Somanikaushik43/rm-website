@@ -64,17 +64,17 @@ const Testimonials = () => {
   return (
     <section className="
       relative w-full py-20 md:py-28
-      bg-orange-50/40 dark:bg-[#06071B]
+      bg-bgLight dark:bg-bgDark
       transition-colors duration-300
     ">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* HEADER */}
         <div className="mb-16">
-          <p className="mb-3 text-sm tracking-[0.3em] uppercase text-orange-600 dark:text-orange-400 font-semibold">
+          <p className="mb-3 text-sm tracking-[0.3em] uppercase text-brandGold dark:text-brandAccent font-semibold">
             Testimonials
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 dark:text-white mb-4">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brandDark dark:text-white mb-4">
             Clients Feedback
           </h2>
         </div>
@@ -86,10 +86,10 @@ const Testimonials = () => {
           <div className="lg:col-span-3 space-y-8">
             {/* Client Count */}
             <div>
-              <div className="text-5xl md:text-6xl font-bold text-stone-900 dark:text-white mb-2">
+              <div className="text-5xl md:text-6xl font-bold text-brandGold dark:text-brandAccent mb-2">
                 120+
               </div>
-              <p className="text-sm text-stone-600 dark:text-gray-400">
+              <p className="text-sm text-brandNavy dark:text-gray-400 font-medium">
                 Trusted Clients Worldwide
               </p>
             </div>
@@ -107,7 +107,7 @@ const Testimonials = () => {
                     aspect-square rounded-lg overflow-hidden
                     transition-all duration-300
                     ${idx === currentIndex 
-                      ? 'ring-2 ring-orange-500 dark:ring-orange-400 scale-105' 
+                      ? 'ring-2 ring-brandGold dark:ring-brandAccent scale-105' 
                       : 'opacity-60 hover:opacity-100 hover:scale-105'
                     }
                   `}
@@ -124,7 +124,7 @@ const Testimonials = () => {
 
           {/* CENTER: Image */}
           <div className="lg:col-span-4">
-            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-borderLight dark:ring-borderDark">
               <img
                 key={current.id}
                 src={current.image}
@@ -141,14 +141,14 @@ const Testimonials = () => {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Review Platform Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-slate-800 shadow-md border border-orange-200 dark:border-slate-700">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surfaceLight dark:bg-surfaceDark shadow-md border border-borderLight dark:border-borderDark">
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
                 <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
                 <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
                 <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
               </svg>
-              <span className="text-sm font-medium text-stone-900 dark:text-white">
+              <span className="text-sm font-medium text-brandDark dark:text-white">
                 Google Reviews
               </span>
             </div>
@@ -158,26 +158,26 @@ const Testimonials = () => {
               {[...Array(current.rating)].map((_, i) => (
                 <Star
                   key={i}
-                  className="w-6 h-6 fill-orange-500 text-orange-500"
+                  className="w-6 h-6 fill-brandGold text-brandGold dark:fill-brandAccent dark:text-brandAccent"
                 />
               ))}
-              <span className="ml-2 text-sm text-stone-600 dark:text-gray-400">
+              <span className="ml-2 text-sm text-brandNavy dark:text-gray-400">
                 {current.rating}/5
               </span>
             </div>
 
             {/* Testimonial Text */}
             <div key={current.id} className="animate-fadeIn">
-              <p className="text-lg md:text-xl lg:text-2xl leading-relaxed text-stone-900 dark:text-white mb-6">
+              <p className="text-lg md:text-xl lg:text-2xl leading-relaxed text-brandDark dark:text-white mb-6">
                 "{current.text}"
               </p>
 
               {/* Author Info */}
               <div>
-                <h4 className="text-xl font-bold text-stone-900 dark:text-white mb-1">
+                <h4 className="text-xl font-bold text-brandDark dark:text-white mb-1">
                   {current.name}
                 </h4>
-                <p className="text-sm text-stone-600 dark:text-gray-400">
+                <p className="text-sm text-brandNavy dark:text-gray-400">
                   {current.role}
                 </p>
               </div>
@@ -189,10 +189,11 @@ const Testimonials = () => {
                 onClick={prevSlide}
                 className="
                   w-12 h-12 rounded-full flex items-center justify-center
-                  bg-white dark:bg-slate-800
-                  border border-orange-200 dark:border-slate-700
-                  text-stone-900 dark:text-white
-                  hover:bg-orange-50 dark:hover:bg-slate-700
+                  bg-surfaceLight dark:bg-surfaceDark
+                  border border-borderLight dark:border-borderDark
+                  text-brandDark dark:text-white
+                  hover:bg-brandGold/10 dark:hover:bg-brandAccent/10
+                  hover:border-brandGold dark:hover:border-brandAccent
                   transition-all duration-200
                   shadow-md hover:shadow-lg
                 "
@@ -205,8 +206,9 @@ const Testimonials = () => {
                 onClick={nextSlide}
                 className="
                   w-12 h-12 rounded-full flex items-center justify-center
-                  bg-gradient-to-r from-orange-500 to-amber-600
-                  text-white
+                  bg-gradient-to-r from-brandDark to-brandNavy
+                  dark:from-brandAccent dark:to-brandGold
+                  text-white dark:text-brandDark
                   hover:shadow-lg hover:scale-105
                   transition-all duration-200
                   shadow-md
@@ -224,8 +226,8 @@ const Testimonials = () => {
                     className={`
                       h-1 rounded-full transition-all duration-300
                       ${idx === currentIndex 
-                        ? 'w-8 bg-orange-500 dark:bg-orange-400' 
-                        : 'w-1 bg-stone-300 dark:bg-slate-700'
+                        ? 'w-8 bg-brandGold dark:bg-brandAccent' 
+                        : 'w-1 bg-borderLight dark:bg-borderDark'
                       }
                     `}
                   />

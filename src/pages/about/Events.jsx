@@ -83,7 +83,7 @@ const events = [
     fullDesc:
       "At the IIA Hyderabad Chapter event, we connected with audit professionals to exchange perspectives on governance, risk management, and the evolving internal audit landscape.",
     gallery: [
-      hyd1,hyd2,hyd3,hyd4,hyd5,hyd6,hyd7,hyd8,hyd9
+      hyd1, hyd2, hyd3, hyd4, hyd5, hyd6, hyd7, hyd8, hyd9
     ],
   },
   {
@@ -97,7 +97,7 @@ const events = [
     fullDesc:
       "The IIA Bangalore Chapter event brought together industry experts to discuss innovation, digital transformation, and the future of internal auditing.",
     gallery: [
-      bang3,bang6
+      bang3, bang6
     ],
   },
   {
@@ -111,7 +111,7 @@ const events = [
     fullDesc:
       "At the IIA Kolkata Chapter event, professionals explored emerging trends in governance, compliance, and internal audit practices.",
     gallery: [
-      kol2,kol3,
+      kol2, kol3,
     ],
   },
   {
@@ -125,7 +125,7 @@ const events = [
     fullDesc:
       "The IIA Mumbai Chapter event was a hub of ideas, collaboration, and forward-thinking audit strategies.",
     gallery: [
-      mum1,mum5,mum9,
+      mum1, mum5, mum9,
     ],
   },
   {
@@ -139,7 +139,7 @@ const events = [
     fullDesc:
       "At the AGM IIA Delhi Chapter, audit leaders collaborated on strategies, insights, and advancements shaping the future of internal audit.",
     gallery: [
-      delh1,delh2,delh3,delh4,delh5,delh6,delh7,delh8,delh9,delh10,delh11
+      delh1, delh2, delh3, delh4, delh5, delh6, delh7, delh8, delh9, delh10, delh11
     ],
   },
   {
@@ -153,7 +153,7 @@ const events = [
     fullDesc:
       "WOFA 2025 brought together changemakers, leaders, and innovators for impactful discussions and global collaboration.",
     gallery: [
-      wofa1,wofa2,wofa3,wofa4,wofa5,wofa6,wofa7,wofa8
+      wofa1, wofa2, wofa3, wofa4, wofa5, wofa6, wofa7, wofa8
     ],
   },
 ];
@@ -183,7 +183,7 @@ export default function Events() {
 
   return (
     <>
-      <section className="relative py-20 transition-colors duration-300 bg-white dark:bg-black">
+      <section className="relative py-20 transition-colors duration-300 bg-surfaceLight dark:bg-surfaceDark">
         <div className="px-6 mx-auto max-w-7xl lg:px-8">
           {/* Header */}
           <motion.div
@@ -193,10 +193,10 @@ export default function Events() {
             viewport={{ once: true }}
             className="mb-14"
           >
-            <h2 className="text-3xl font-bold md:text-4xl">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600 dark:from-[var(--accent-blue)] dark:to-[var(--accent-purple)]">Events & Conferences</span>
+            <h2 className="text-3xl font-bold md:text-4xl text-brandDark dark:text-white">
+              Our <span className="text-brandPrimary dark:text-brandAccent">Events & Conferences</span>
             </h2>
-            <p className="max-w-2xl mt-4 text-stone-600 dark:text-white/70">
+            <p className="max-w-2xl mt-4 text-brandNavy dark:text-gray-400">
               Showcasing our presence across industry-leading conferences,
               forums, and professional gatherings.
             </p>
@@ -212,8 +212,9 @@ export default function Events() {
                 whileInView="animate"
                 viewport={{ once: true }}
                 onClick={() => setActiveEvent(event)}
-                className="group cursor-pointer bg-white border border-orange-200 dark:bg-zinc-900 dark:border-white/10 rounded-3xl p-6 hover:scale-[1.02] transition-all duration-500 hover:border-orange-500 hover:shadow-2xl hover:shadow-orange-500/20 dark:hover:border-[var(--accent-blue)]/50 dark:hover:shadow-[var(--accent-blue)]/20"
+                className="group cursor-pointer bg-surfaceLight dark:bg-surfaceDark border border-borderLight dark:border-borderDark rounded-3xl p-6 transition-all duration-300 hover:border-brandGold dark:hover:border-brandAccent hover:shadow-2xl hover:-translate-y-1"
               >
+                <div className="absolute inset-0 bg-brandPrimary opacity-0 group-hover:opacity-5 dark:bg-brandAccent transition-all duration-300 rounded-3xl" />
                 <div className="mb-6 overflow-hidden rounded-2xl">
                   <img
                     src={event.image}
@@ -222,20 +223,20 @@ export default function Events() {
                   />
                 </div>
 
-                <h3 className="text-xl font-bold mb-2 text-stone-900 dark:text-white group-hover:text-orange-600 dark:group-hover:text-[var(--accent-blue-light)]">
+                <h3 className="text-xl font-bold mb-2 text-brandDark dark:text-white group-hover:text-brandPrimary dark:group-hover:text-brandAccent transition-colors duration-300">
                   {event.title}
                 </h3>
 
-                <div className="flex gap-4 mb-3 text-sm text-stone-600 dark:text-white/60">
+                <div className="flex gap-4 mb-3 text-sm text-brandNavy dark:text-gray-400">
                   <span className="flex items-center gap-2">
-                    <FaCalendarAlt /> {event.date}
+                    <FaCalendarAlt className="text-brandPrimary dark:text-brandAccent" /> {event.date}
                   </span>
                   <span className="flex items-center gap-2">
-                    <FaMapMarkerAlt /> {event.location}
+                    <FaMapMarkerAlt className="text-brandPrimary dark:text-brandAccent" /> {event.location}
                   </span>
                 </div>
 
-                <p className="text-sm text-stone-600 dark:text-white/70">{event.shortDesc}</p>
+                <p className="text-sm text-brandNavy dark:text-gray-400">{event.shortDesc}</p>
               </motion.div>
             ))}
           </div>
@@ -258,55 +259,55 @@ export default function Events() {
               animate="animate"
               exit="exit"
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-5xl overflow-hidden rounded-3xl bg-white dark:bg-zinc-900"
+              className="relative w-full max-w-5xl overflow-hidden rounded-3xl bg-surfaceLight dark:bg-surfaceDark border border-borderLight dark:border-borderDark shadow-2xl"
             >
 
-             <div className="absolute top-0 left-0 right-0 z-50 flex justify-end p-4">
-              <button
-                onClick={() => setActiveEvent(null)}
-                className="p-2 text-white transition rounded-full bg-black/70 backdrop-blur-md hover:scale-110" aria-label="Close modal"
-              >
-                <FaTimes size={18} />
-              </button>
+              <div className="absolute top-0 left-0 right-0 z-50 flex justify-end p-4">
+                <button
+                  onClick={() => setActiveEvent(null)}
+                  className="p-2 text-white transition rounded-full bg-black/70 backdrop-blur-md hover:scale-110" aria-label="Close modal"
+                >
+                  <FaTimes size={18} />
+                </button>
               </div>
 
               {/* Carousel */}
-                <div className="relative flex items-center justify-center px-6 pt-16 pb-6 bg-gray-100 dark:bg-black">
-                  <AnimatePresence mode="wait">
-                    <motion.img
-                      key={activeEvent.gallery[activeIndex]}
-                      src={activeEvent.gallery[activeIndex]}
-                      alt=""
-                      initial={{ opacity: 0, x: 40 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: -40 }}
-                      transition={{ duration: 0.35 }}
-                      className="object-contain w-auto max-w-full max-h-[70vh] rounded-xl"
-                    />
-                  </AnimatePresence>
+              <div className="relative flex items-center justify-center px-6 pt-16 pb-6 bg-gray-50 dark:bg-black/40">
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={activeEvent.gallery[activeIndex]}
+                    src={activeEvent.gallery[activeIndex]}
+                    alt=""
+                    initial={{ opacity: 0, x: 40 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -40 }}
+                    transition={{ duration: 0.35 }}
+                    className="object-contain w-auto max-w-full max-h-[70vh] rounded-xl"
+                  />
+                </AnimatePresence>
 
-                  <button
-                    onClick={prevSlide}
-                    className="absolute z-40 p-3 text-white -translate-y-1/2 rounded-full left-4 top-1/2 bg-black/60 hover:bg-black/80 transition-colors"
-                  >
-                    <FaChevronLeft />
-                  </button>
+                <button
+                  onClick={prevSlide}
+                  className="absolute z-40 p-3 text-white -translate-y-1/2 rounded-full left-4 top-1/2 bg-black/60 hover:bg-black/80 transition-colors"
+                >
+                  <FaChevronLeft />
+                </button>
 
-                  <button
-                    onClick={nextSlide}
-                    className="absolute z-40 p-3 text-white -translate-y-1/2 rounded-full right-4 top-1/2 bg-black/60 hover:bg-black/80 transition-colors"
-                  >
-                    <FaChevronRight />
-                  </button>
+                <button
+                  onClick={nextSlide}
+                  className="absolute z-40 p-3 text-white -translate-y-1/2 rounded-full right-4 top-1/2 bg-black/60 hover:bg-black/80 transition-colors"
+                >
+                  <FaChevronRight />
+                </button>
 
-                  <div className="absolute px-3 py-1 text-xs text-white rounded-full bottom-4 right-6 bg-black/60">
-                    {activeIndex + 1} / {activeEvent.gallery.length}
-                  </div>
+                <div className="absolute px-3 py-1 text-xs text-white rounded-full bottom-4 right-6 bg-black/60">
+                  {activeIndex + 1} / {activeEvent.gallery.length}
                 </div>
+              </div>
 
-                <div className="px-8 pb-10">
-                <h2 className="mb-4 text-3xl font-bold text-stone-900 dark:text-white">{activeEvent.title}</h2>
-                <p className="max-w-3xl text-stone-700 dark:text-white/80">{activeEvent.fullDesc}</p>
+              <div className="px-8 pb-10">
+                <h2 className="mb-4 text-3xl font-bold text-brandDark dark:text-white">{activeEvent.title}</h2>
+                <p className="max-w-3xl text-brandNavy dark:text-gray-400">{activeEvent.fullDesc}</p>
               </div>
             </motion.div>
           </motion.div>

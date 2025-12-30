@@ -59,8 +59,8 @@ const KeyServices = () => {
     <section
       className="
         transition-colors duration-300
-        bg-orange-50/40
-        dark:bg-[#06071B]
+        bg-bgLight
+        dark:bg-bgDark
         py-20 md:py-28
       "
     >
@@ -68,13 +68,13 @@ const KeyServices = () => {
         <div className="grid gap-10 lg:grid-cols-2 items-start">
           {/* LEFT COLUMN */}
           <div className="lg:sticky lg:top-24">
-            {/* Label - LIGHT MODE: Warm gray | DARK MODE: White/50 */}
-            <p className="mb-4 text-sm tracking-wider uppercase text-stone-500 dark:text-white/50">
+            {/* Label */}
+            <p className="mb-4 text-sm tracking-wider uppercase font-semibold text-brandNavy dark:text-brandAccent">
               Key Services
             </p>
 
-            {/* Heading - LIGHT MODE: Dark stone | DARK MODE: White */}
-            <h2 className="mb-6 text-3xl md:text-4xl font-bold text-stone-900 dark:text-white leading-tight">
+            {/* Heading */}
+            <h2 className="mb-6 text-3xl md:text-4xl font-bold text-brandDark dark:text-white leading-tight">
               Comprehensive
               <br />
               Audit Solutions
@@ -84,22 +84,24 @@ const KeyServices = () => {
               Challenge
             </h2>
 
-            {/* Description - LIGHT MODE: Medium stone | DARK MODE: White/70 */}
-            <p className="max-w-xl mb-8 text-stone-600 dark:text-white/70">
+            {/* Description */}
+            <p className="max-w-xl mb-8 text-base text-brandNavy dark:text-white/70">
               Explore our specialized internal audit services designed to manage
               risk, enhance control, and ensure operational and regulatory
               excellence.
             </p>
 
-            {/* CTA Button - LIGHT MODE: Orange | DARK MODE: Indigo */}
+            {/* CTA Button */}
             <button
               onClick={scrollTop}
               className="
                 px-8 py-4 rounded-full font-semibold
-                bg-orange-600 text-white
-                hover:bg-orange-700
-                dark:bg-indigo-600 dark:hover:bg-indigo-700
-                transition
+                bg-brandDark text-white
+                hover:bg-brandPrimary
+                dark:bg-brandAccent dark:text-brandDark
+                dark:hover:bg-brandGold
+                transition-all duration-300
+                shadow-lg hover:shadow-xl hover:scale-105
               "
             >
               Book Consultation
@@ -114,51 +116,51 @@ const KeyServices = () => {
                 className={`
                   relative group rounded-3xl p-6 min-h-[260px]
                   transition-all duration-300
-                  border border-orange-200 bg-white shadow-lg
-                  hover:-translate-y-1 hover:shadow-2xl hover:border-orange-500/60
-                  dark:bg-white/5 dark:border-white/10 dark:shadow-none
-                  dark:hover:border-indigo-500/60
+                  border border-borderLight bg-surfaceLight shadow-lg
+                  hover:-translate-y-1 hover:shadow-2xl hover:border-brandGold
+                  dark:bg-surfaceDark dark:border-borderDark dark:shadow-none
+                  dark:hover:border-brandAccent
                   ${index === 1 || index === 3 ? "lg:ml-20" : ""}
                 `}
               >
-                {/* BIG NUMBER - LIGHT MODE: Light orange | DARK MODE: White/5 */}
-                <span className="absolute top-6 right-8 text-7xl font-bold select-none text-orange-200 dark:text-white/5">
+                {/* BIG NUMBER */}
+                <span className="absolute top-6 right-8 text-7xl font-bold select-none text-brandGold/20 dark:text-brandAccent/10">
                   {service.id}
                 </span>
 
-                {/* ICON - LIGHT MODE: Orange | DARK MODE: Indigo */}
-                <div className="w-10 h-10 mb-6 rounded-xl flex items-center justify-center bg-orange-600/15 group-hover:bg-orange-600 dark:bg-indigo-600/15 dark:group-hover:bg-indigo-600 transition">
-                  <div className="text-orange-600 group-hover:text-white dark:text-indigo-600 dark:group-hover:text-white transition">
+                {/* ICON */}
+                <div className="w-10 h-10 mb-6 rounded-xl flex items-center justify-center bg-brandDark/10 group-hover:bg-brandDark dark:bg-brandAccent/15 dark:group-hover:bg-brandAccent transition-all duration-300">
+                  <div className="text-brandDark group-hover:text-white dark:text-brandAccent dark:group-hover:text-brandDark transition-colors duration-300">
                     {service.icon}
                   </div>
                 </div>
 
                 {/* CONTENT */}
-                <h3 className="mb-4 text-xl md:text-2xl font-semibold text-stone-900 dark:text-white">
+                <h3 className="mb-4 text-xl md:text-2xl font-semibold text-brandDark dark:text-white">
                   {service.title}
                 </h3>
 
-                <p className="mb-10 leading-relaxed text-stone-600 dark:text-white/70">
+                <p className="mb-10 leading-relaxed text-brandNavy dark:text-white/70">
                   {service.description}
                 </p>
 
-                {/* ARROW BUTTON - LIGHT MODE: Orange on hover | DARK MODE: Indigo on hover */}
+                {/* ARROW BUTTON */}
                 <button
                   onClick={scrollTop}
                   className="
                     absolute bottom-5 right-5
                     w-10 h-10 rounded-full
-                    border border-orange-300
+                    border-2 border-brandGold
                     flex items-center justify-center
-                    hover:bg-orange-600 hover:border-orange-600
-                    dark:border-white/20
-                    dark:hover:bg-indigo-600 dark:hover:border-indigo-600
-                    transition
+                    hover:bg-brandGold hover:border-brandGold
+                    dark:border-brandAccent
+                    dark:hover:bg-brandAccent
+                    transition-all duration-300
                   "
                 >
                   <ArrowUpRight
                     size={16}
-                    className="text-stone-700 dark:text-white group-hover:text-white"
+                    className="text-brandDark dark:text-brandAccent group-hover:text-white dark:group-hover:text-brandDark transition-colors duration-300"
                   />
                 </button>
               </div>

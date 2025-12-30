@@ -50,24 +50,12 @@ const industryIcons = {
   "travel-logistics": <FaUsers className="text-3xl" />,
 };
 
-const gradients = [
-  "from-blue-600 to-indigo-600",
-  "from-indigo-600 to-purple-600",
-  "from-purple-600 to-pink-600",
-  "from-green-600 to-emerald-600",
-  "from-orange-600 to-red-600",
-  "from-red-600 to-rose-600",
-  "from-cyan-600 to-blue-600",
-  "from-teal-600 to-green-600",
-];
-
 /* =======================
    INDUSTRY CARD
 ======================= */
 const IndustryCard = ({ industry, index }) => {
   const icon =
     industryIcons[industry.id] || <FaIndustry className="text-3xl" />;
-  const gradient = gradients[index % gradients.length];
 
   return (
     <motion.div
@@ -80,42 +68,19 @@ const IndustryCard = ({ industry, index }) => {
     >
       <Link to={`/industries/${industry.id}`}>
         <motion.div
-          whileHover={{ scale: 1.05, y: -8 }}
-          className="bg-zinc-800 backdrop-blur-sm border border-white/5 rounded-2xl overflow-hidden h-full relative cursor-pointer transition-all duration-500 hover:border-[var(--accent-blue)]/50 hover:shadow-2xl hover:shadow-[var(--accent-blue)]/30"
+          className="bg-surfaceLight dark:bg-surfaceDark border border-borderLight dark:border-borderDark rounded-3xl overflow-hidden h-full relative cursor-pointer transition-all duration-300 hover:border-brandGold dark:hover:border-brandAccent hover:shadow-2xl hover:-translate-y-1"
         >
-          {/* Animated gradient background */}
-          <motion.div
-            className="absolute inset-0 bg-gradient-to-br rounded-2xl"
-            initial={{ opacity: 0 }}
-            whileHover={{
-              opacity: 0.15,
-              background:
-                "linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%)",
-              transition: { duration: 0.5 },
-            }}
-          />
-
-          {/* Glow effect */}
-          <motion.div
-            className="absolute -inset-1 bg-gradient-to-r from-[var(--accent-blue)] to-[var(--accent-purple)] rounded-2xl blur-xl"
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 0.4, transition: { duration: 0.4 } }}
-          />
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-brandPrimary opacity-0 group-hover:opacity-5 dark:bg-brandAccent transition-all duration-300 rounded-3xl" />
 
           {/* Image Section */}
           {industry.headerImage && (
             <div className="relative h-48 overflow-hidden">
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-t from-[var(--dark-navy-light)] to-transparent z-10"
-                initial={{ opacity: 0.5 }}
-                whileHover={{ opacity: 0.7 }}
-              />
+              <div className="absolute inset-0 bg-brandDark/40 z-10" />
               <motion.img
                 src={industry.headerImage}
                 alt={industry.title}
-                className="object-cover w-full h-full"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.6 }}
+                className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-500"
               />
             </div>
           )}
@@ -123,55 +88,27 @@ const IndustryCard = ({ industry, index }) => {
           {/* Content */}
           <div className="relative z-10 p-6 space-y-4">
             {/* Icon */}
-            <motion.div
-              className={`w-16 h-16 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center group-hover:shadow-2xl`}
-              whileHover={{
-                scale: 1.15,
-                rotate: [0, -10, 10, -10, 0],
-                transition: { duration: 0.5 },
-              }}
-            >
+            <div className="w-16 h-16 rounded-xl bg-brandPrimary/10 dark:bg-brandAccent/10 flex items-center justify-center text-brandPrimary dark:text-brandAccent group-hover:bg-brandPrimary dark:group-hover:bg-brandAccent group-hover:text-white dark:group-hover:text-brandDark transition-all duration-300">
               {icon}
-            </motion.div>
+            </div>
 
             {/* Title */}
-            <motion.h3
-              className="text-xl font-bold text-white/90 group-hover:text-white"
-              whileHover={{ x: 5, transition: { duration: 0.3 } }}
-            >
+            <h3 className="text-xl font-bold text-brandDark dark:text-white group-hover:text-brandPrimary dark:group-hover:text-brandAccent transition-colors duration-300">
               {industry.title}
-            </motion.h3>
+            </h3>
 
             {/* Summary */}
-            <p className="text-sm text-[var(--text-gray)] leading-relaxed group-hover:text-white/90 line-clamp-3">
+            <p className="text-sm text-brandNavy dark:text-gray-400 leading-relaxed group-hover:text-brandNavy/80 dark:group-hover:text-white/80 line-clamp-3 transition-colors duration-300">
               {industry.summary}
             </p>
 
             {/* Learn More */}
-            <motion.div
-              className="pt-4 transition-colors duration-300 border-t border-white/10 group-hover:border-white/30"
-              whileHover={{ borderColor: "rgba(255, 255, 255, 0.5)" }}
-            >
-              <motion.div
-                className="flex items-center gap-2 text-[var(--accent-blue-light)] font-semibold group-hover:text-white"
-                whileHover={{
-                  x: 5,
-                  transition: { duration: 0.3 },
-                }}
-              >
+            <div className="pt-4 transition-colors duration-300 border-t border-borderLight dark:border-borderDark group-hover:border-brandPrimary/30 dark:group-hover:border-brandAccent/30">
+              <div className="flex items-center gap-2 text-brandPrimary dark:text-brandAccent font-semibold group-hover:translate-x-1 transition-all duration-300">
                 Explore Industry
-                <motion.div
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{
-                    repeat: Infinity,
-                    duration: 1.5,
-                    ease: "easeInOut",
-                  }}
-                >
-                  <FaArrowRight size={14} />
-                </motion.div>
-              </motion.div>
-            </motion.div>
+                <FaArrowRight size={14} />
+              </div>
+            </div>
           </div>
         </motion.div>
       </Link>
@@ -184,36 +121,18 @@ const IndustryCard = ({ industry, index }) => {
 ======================= */
 export default function IndustriesList() {
   return (
-    <div className="min-h-screen overflow-x-hidden text-white bg-black">
-
-      <BackgroundGrid/>
+    <div className="min-h-screen bg-bgLight dark:bg-bgDark text-brandDark dark:text-white overflow-x-hidden">
+      <BackgroundGrid />
       {/* ================= HERO ================= */}
-      <section className="relative isolate min-h-[60vh] flex items-center justify-center section-padding overflow-hidden">
-        <motion.div
-          className="bg-glow-blue absolute top-[-200px] right-[-100px]"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            repeatType: "reverse",
-          }}
-        />
-        <motion.div
-          className="bg-glow-purple absolute bottom-[-150px] left-[-150px]"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            repeatType: "reverse",
-            delay: 1,
-          }}
-        />
+      <section className="relative isolate min-h-[50vh] flex items-center justify-center section-padding overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-bgLight/60 dark:bg-bgDark/70 z-10" />
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&h=1080&fit=crop&q=80"
+            alt="Industries"
+            className="object-cover w-full h-full grayscale opacity-30 dark:opacity-40"
+          />
+        </div>
 
         <div className="container relative z-10 max-w-6xl mx-auto">
           <motion.div
@@ -224,38 +143,23 @@ export default function IndustriesList() {
           >
             <motion.p
               variants={fadeInUp}
-              className="text-[var(--accent-blue-light)] text-lg mb-4 tracking-wide uppercase font-semibold"
+              className="text-brandPrimary dark:text-brandAccent text-lg mb-4 tracking-wide uppercase font-semibold"
             >
               Industry Expertise
             </motion.p>
 
             <motion.h1
               variants={fadeInUp}
-              className="mb-6 text-5xl font-bold leading-tight md:text-7xl"
+              className="mb-6 text-5xl font-bold leading-tight md:text-7xl text-brandDark dark:text-white"
             >
               Industries
               <br />
-              <motion.span
-                className="gradient-text"
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                style={{
-                  backgroundSize: "200% 200%",
-                }}
-              >
-                We Serve
-              </motion.span>
+              <span className="text-brandPrimary dark:text-brandAccent">We Serve</span>
             </motion.h1>
 
             <motion.p
               variants={fadeInUp}
-              className="max-w-3xl mx-auto text-xl leading-relaxed text-white md:text-2xl"
+              className="max-w-3xl mx-auto text-xl leading-relaxed text-brandNavy dark:text-gray-400 md:text-2xl"
             >
               Sector-focused expertise delivering risk, compliance, and resilience
             </motion.p>
@@ -264,7 +168,7 @@ export default function IndustriesList() {
       </section>
 
       {/* ================= INDUSTRIES GRID ================= */}
-      <section className="relative section-padding isolate">
+      <section className="relative bg-bgLight dark:bg-bgDark section-padding isolate transition-colors duration-300">
         <div className="container mx-auto max-w-7xl">
           {/* Section Header */}
           <motion.div
@@ -273,10 +177,10 @@ export default function IndustriesList() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="mb-6 text-4xl font-bold md:text-5xl">
-              Tailored <span className="gradient-text">Industry Solutions</span>
+            <h2 className="mb-6 text-4xl font-bold md:text-5xl text-brandDark dark:text-white">
+              Tailored <span className="text-brandPrimary dark:text-brandAccent">Industry Solutions</span>
             </h2>
-            <p className="max-w-3xl text-base text-white text-start">
+            <p className="max-w-3xl text-base text-brandNavy dark:text-gray-400 text-start">
               Designed for sector-specific regulatory, operational, and strategic challenges
             </p>
           </motion.div>
@@ -295,20 +199,18 @@ export default function IndustriesList() {
       </section>
 
       {/* ================= WHY CHOOSE RISKMAN ================= */}
-      <section className="relative section-padding isolate">
-        <div className="bg-glow-purple absolute top-[100px] right-[-200px]" />
-
+      <section className="relative bg-bgLight dark:bg-bgDark section-padding isolate transition-colors duration-300">
         <div className="container mx-auto max-w-7xl">
           <motion.h2
             variants={fadeInUp}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
-            className="mb-16 text-4xl font-bold text-start md:text-5xl"
+            className="mb-16 text-4xl font-bold text-start md:text-5xl text-brandDark dark:text-white"
           >
             Industry-Specific
             <br />
-            <span className="gradient-text">Excellence</span>
+            <span className="text-brandPrimary dark:text-brandAccent">Excellence</span>
           </motion.h2>
 
           <div className="grid gap-8 md:grid-cols-3">
@@ -336,37 +238,20 @@ export default function IndustriesList() {
                 whileInView="animate"
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.12 }}
-                whileHover={{
-                  scale: 1.05,
-                  y: -5,
-                  transition: { duration: 0.3 },
-                }}
-                className="relative p-8 overflow-hidden text-center border cursor-pointer bg-zinc-800 backdrop-blur-sm border-white/10 rounded-2xl group"
+                className="relative p-8 overflow-hidden text-center border cursor-pointer bg-surfaceLight dark:bg-surfaceDark border-borderLight dark:border-borderDark rounded-3xl group transition-all duration-300 hover:border-brandGold dark:hover:border-brandAccent hover:shadow-2xl hover:-translate-y-1"
               >
-                {/* Glow effect */}
-                <motion.div
-                  className="absolute -inset-1 bg-gradient-to-r from-[var(--accent-blue)] to-[var(--accent-purple)] rounded-2xl blur-xl"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 0.3, transition: { duration: 0.4 } }}
-                />
+                <div className="absolute inset-0 bg-brandPrimary opacity-0 group-hover:opacity-5 dark:bg-brandAccent transition-all duration-300 rounded-3xl" />
 
                 <div className="relative z-10">
-                  <motion.div
-                    className="w-16 h-16 rounded-full bg-gradient-to-br from-[var(--accent-blue)] to-[var(--accent-purple)] flex items-center justify-center mx-auto mb-4"
-                    whileHover={{
-                      scale: 1.2,
-                      rotate: 360,
-                      transition: { duration: 0.5 },
-                    }}
-                  >
+                  <div className="w-16 h-16 rounded-full bg-brandPrimary/10 dark:bg-brandAccent/10 flex items-center justify-center mx-auto mb-4 text-brandPrimary dark:text-brandAccent group-hover:bg-brandPrimary dark:group-hover:bg-brandAccent group-hover:text-white dark:group-hover:text-brandDark transition-all duration-300">
                     {item.icon}
-                  </motion.div>
+                  </div>
 
-                  <h3 className="mb-3 text-xl font-bold text-white/90 group-hover:text-white">
+                  <h3 className="mb-3 text-xl font-bold text-brandDark dark:text-white group-hover:text-brandPrimary dark:group-hover:text-brandAccent transition-colors duration-300">
                     {item.title}
                   </h3>
 
-                  <p className="text-sm text-[var(--text-gray)] leading-relaxed group-hover:text-white/90">
+                  <p className="text-sm text-brandNavy dark:text-gray-400 leading-relaxed group-hover:text-brandNavy/80 dark:group-hover:text-white/80 transition-colors duration-300">
                     {item.desc}
                   </p>
                 </div>
@@ -377,8 +262,7 @@ export default function IndustriesList() {
       </section>
 
       {/* ================= CTA ================= */}
-      <section className="relative text-center bg-black section-padding isolate">
-        <div className="bg-glow-blue absolute top-[50px] left-[-100px]" />
+      <section className="relative text-center bg-bgLight dark:bg-bgDark section-padding isolate transition-colors duration-300">
 
         <div className="container relative z-10 max-w-6xl mx-auto">
           <motion.div
@@ -387,28 +271,13 @@ export default function IndustriesList() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <h2 className="text-4xl font-bold md:text-5xl">
+            <h2 className="text-4xl font-bold md:text-5xl text-brandDark dark:text-white">
               Ready to Transform Your
               <br />
-              <motion.span
-                className="gradient-text"
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-                style={{
-                  backgroundSize: "200% 200%",
-                }}
-              >
-                Industry Resilience?
-              </motion.span>
+              <span className="text-brandPrimary dark:text-brandAccent">Industry Resilience?</span>
             </h2>
 
-            <p className="text-xl text-[var(--text-gray)] max-w-3xl mx-auto">
+            <p className="text-xl text-brandNavy dark:text-gray-400 max-w-3xl mx-auto">
               Partner with RiskMan for industry-leading risk management and compliance solutions
             </p>
 
@@ -417,10 +286,10 @@ export default function IndustriesList() {
                 (item, i) => (
                   <motion.span
                     key={i}
-                    className="px-6 py-3 font-semibold border rounded-full bg-white/10 backdrop-blur-sm border-white/20"
+                    className="px-6 py-3 font-semibold border rounded-full bg-surfaceLight/50 dark:bg-surfaceDark/50 backdrop-blur-sm border-borderLight dark:border-borderDark text-brandDark dark:text-white"
                     whileHover={{
-                      scale: 1.05,
-                      backgroundColor: "rgba(255, 255, 255, 0.15)",
+                      y: -2,
+                      borderColor: "#FFC000",
                     }}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -435,11 +304,7 @@ export default function IndustriesList() {
             <motion.div className="flex flex-wrap justify-center gap-4">
               <motion.a
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 text-lg btn-primary"
-                whileHover={{
-                  scale: 1.05,
-                  boxShadow: "0 0 30px rgba(99, 179, 237, 0.5)",
-                }}
+                className="inline-flex items-center gap-2 px-8 py-4 text-lg rounded-full font-semibold bg-brandDark text-white hover:bg-brandPrimary dark:bg-brandAccent dark:text-brandDark dark:hover:bg-brandGold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105"
                 whileTap={{ scale: 0.98 }}
               >
                 Discuss Your Industry Needs

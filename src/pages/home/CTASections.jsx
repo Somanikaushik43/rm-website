@@ -19,7 +19,7 @@ const CTASection = () => {
       name: "Michael Chen",
       role: "Risk Analyst",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-      color: "bg-indigo-200",
+      color: "bg-blue-200",
     },
     {
       name: "David Park",
@@ -31,7 +31,7 @@ const CTASection = () => {
       name: "James Wilson",
       role: "Audit Manager",
       image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
-      color: "bg-red-200",
+      color: "bg-orange-200",
     },
     {
       name: "Robert Lee",
@@ -53,8 +53,8 @@ const CTASection = () => {
       className="
         relative w-full
         transition-colors duration-300
-        bg-orange-50/40
-        dark:bg-[#06071B]
+        bg-bgLight
+        dark:bg-bgDark
         py-20 md:py-28
       "
     >
@@ -65,7 +65,7 @@ const CTASection = () => {
             {topAvatars.map((avatar, i) => (
               <div
                 key={i}
-                className="relative w-14 h-14 rounded-full border-4 border-white dark:border-[#06071B] overflow-hidden shadow-lg"
+                className="relative w-14 h-14 rounded-full border-4 border-surfaceLight dark:border-surfaceDark overflow-hidden shadow-lg ring-1 ring-borderLight dark:ring-borderDark"
               >
                 <img
                   src={avatar}
@@ -74,19 +74,19 @@ const CTASection = () => {
                 />
               </div>
             ))}
-            <div className="relative w-14 h-14 rounded-full border-4 border-white dark:border-[#06071B] bg-amber-400 flex items-center justify-center shadow-lg">
-              <span className="text-sm font-bold text-stone-900">12K+</span>
+            <div className="relative w-14 h-14 rounded-full border-4 border-surfaceLight dark:border-surfaceDark bg-brandGold dark:bg-brandAccent flex items-center justify-center shadow-lg">
+              <span className="text-sm font-bold text-white dark:text-brandDark">12K+</span>
             </div>
           </div>
         </div>
 
         {/* HEADING */}
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 text-stone-900 dark:text-white">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 text-brandDark dark:text-white">
           Create Your Success
         </h2>
 
         {/* DESCRIPTION */}
-        <p className="text-center max-w-2xl mx-auto text-base md:text-lg leading-relaxed mb-10 text-stone-600 dark:text-white/70">
+        <p className="text-center max-w-2xl mx-auto text-base md:text-lg leading-relaxed mb-10 text-brandNavy dark:text-white/70">
           Receive personalized guidance from seasoned startup advisors who have
           not only navigated the challenges of launching a business but have
           also successfully built their own ventures.
@@ -98,11 +98,11 @@ const CTASection = () => {
             href="/contact"
             className="
               inline-block px-8 py-4 font-semibold rounded-lg shadow-lg
-              transition-all duration-300
-              bg-orange-600 text-white
-              hover:bg-orange-700
-              dark:bg-indigo-600 dark:text-white
-              dark:hover:bg-indigo-700
+              transition-all duration-300 hover:scale-105
+              bg-brandDark text-white
+              hover:bg-brandPrimary hover:shadow-xl
+              dark:bg-brandAccent dark:text-brandDark
+              dark:hover:bg-brandGold
             "
           >
             Schedule a Free Consultation
@@ -118,6 +118,7 @@ const CTASection = () => {
                 relative rounded-2xl overflow-hidden aspect-[3/4]
                 ${member.color}
                 transition-transform duration-300 hover:-translate-y-2
+                ring-1 ring-borderLight dark:ring-borderDark
                 ${member.featured ? 'md:col-span-1' : ''}
               `}
             >
@@ -130,10 +131,10 @@ const CTASection = () => {
               {/* NAME OVERLAY (Featured member only) */}
               {member.featured && (
                 <div className="absolute top-4 left-4 right-4">
-                  <h3 className="text-stone-900 font-semibold text-sm mb-0.5">
+                  <h3 className="text-brandDark font-semibold text-sm mb-0.5">
                     {member.name}
                   </h3>
-                  <p className="text-stone-700 text-xs">
+                  <p className="text-brandNavy text-xs">
                     {member.role}
                   </p>
                 </div>
@@ -142,8 +143,8 @@ const CTASection = () => {
               {/* LINKEDIN ICON (Featured member only) */}
               {member.featured && (
                 <div className="absolute bottom-4 left-4">
-                  <div className="w-8 h-8 bg-stone-900 rounded flex items-center justify-center">
-                    <Linkedin size={16} className="text-white" />
+                  <div className="w-8 h-8 bg-brandDark dark:bg-brandAccent rounded flex items-center justify-center shadow-md hover:scale-110 transition-transform duration-200">
+                    <Linkedin size={16} className="text-white dark:text-brandDark" />
                   </div>
                 </div>
               )}
@@ -152,7 +153,7 @@ const CTASection = () => {
         </div>
 
         {/* CAPTION */}
-        <p className="text-center text-sm text-stone-500 dark:text-white/50">
+        <p className="text-center text-sm text-brandNavy/60 dark:text-white/50 font-medium">
           Our leader board
         </p>
       </div>

@@ -34,21 +34,21 @@ const StatsSection = () => {
       className="
         relative w-full
         transition-colors duration-300
-        bg-orange-50/40
-        dark:bg-[#06071B]
+        bg-bgLight
+        dark:bg-bgDark
         py-20 md:py-28
       "
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* HEADER */}
         <div className="mb-14 text-left">
-          <p className="mb-3 text-sm tracking-wider uppercase text-stone-500 dark:text-white/50">
+          <p className="mb-3 text-sm tracking-wider uppercase font-semibold text-brandNavy dark:text-brandAccent">
             Our Impact
           </p>
 
-          <h2 className="text-3xl md:text-4xl font-bold text-stone-900 dark:text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-brandDark dark:text-white">
             Trusted by{" "}
-            <span className="bg-gradient-to-r from-orange-600 to-amber-600 dark:from-indigo-600 dark:to-blue-600 bg-clip-text text-transparent">
+            <span className="text-brandGold dark:text-brandAccent">
               Global Enterprises
             </span>
           </h2>
@@ -67,21 +67,22 @@ const StatsSection = () => {
                 <div
                   className="
                     p-8 text-center rounded-3xl
-                    border border-orange-200 shadow-lg
-                    bg-white
-                    hover:shadow-2xl hover:-translate-y-1
-                    dark:bg-white/5 dark:border-white/10 dark:shadow-none
+                    border border-borderLight shadow-lg
+                    bg-surfaceLight
+                    hover:shadow-2xl hover:-translate-y-1 hover:border-brandGold
+                    dark:bg-surfaceDark dark:border-borderDark dark:shadow-none
+                    dark:hover:border-brandAccent
                   "
                 >
-                  {/* ICON - LIGHT: Orange | DARK: Blue/Indigo */}
+                  {/* ICON */}
                   <div
-                    className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-orange-600 to-amber-600 dark:from-indigo-600 dark:to-blue-600 flex items-center justify-center"
+                    className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-brandDark to-brandNavy dark:from-brandAccent dark:to-brandGold flex items-center justify-center shadow-lg"
                   >
-                    <Icon className="text-white" size={24} />
+                    <Icon className="text-white dark:text-brandDark" size={24} />
                   </div>
 
-                  {/* NUMBER - LIGHT: Orange | DARK: Blue/Indigo */}
-                  <h3 className="mb-2 text-5xl font-bold bg-gradient-to-r from-orange-600 to-amber-600 dark:from-indigo-600 dark:to-blue-600 bg-clip-text text-transparent">
+                  {/* NUMBER */}
+                  <h3 className="mb-2 text-5xl font-bold text-brandGold dark:text-brandAccent">
                     <AnimatedCounter
                       target={stat.number}
                       suffix={stat.suffix}
@@ -89,7 +90,7 @@ const StatsSection = () => {
                   </h3>
 
                   {/* LABEL */}
-                  <p className="text-stone-600 dark:text-white/70">
+                  <p className="text-brandNavy dark:text-white/70 font-medium">
                     {stat.label}
                   </p>
                 </div>

@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import blogs from "../../pages/resources/Blogs";
+import blogsData from "../../data/blogs.json"
 
 const BlogSection = () => {
   const navigate = useNavigate();
 
   // latest 3 blogs
-  const latestBlogs = blogs.slice(0, 3);
+  const latestBlogs = blogsData.slice(0, 3);
 
   const handleCardClick = (slug) => {
     navigate(`/blog/${slug}`);
@@ -16,26 +16,26 @@ const BlogSection = () => {
     <section
       className="
         transition-colors duration-300
-        bg-slate-100
-        dark:bg-[#06071B]
+        bg-bgLight
+        dark:bg-bgDark
         py-20 md:py-28
       "
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* HEADER */}
         <div className="mb-14 text-left">
-          <p className="mb-4 text-sm tracking-wider uppercase text-slate-500 dark:text-white/50">
+          <p className="mb-4 text-sm tracking-wider uppercase font-semibold text-brandNavy dark:text-brandAccent">
             Insights
           </p>
 
-          <h2 className="mb-6 text-3xl md:text-5xl font-bold text-slate-900 dark:text-white">
+          <h2 className="mb-6 text-3xl md:text-5xl font-bold text-brandDark dark:text-white">
             Latest from Our{" "}
-            <span className="bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
+            <span className="text-brandGold dark:text-brandAccent">
               Experts
             </span>
           </h2>
 
-          <p className="max-w-3xl text-lg text-slate-600 dark:text-white/70">
+          <p className="max-w-3xl text-lg text-brandNavy dark:text-white/70">
             Stay updated with the latest insights, trends, and best practices in
             audit, risk management, and compliance.
           </p>
@@ -50,9 +50,10 @@ const BlogSection = () => {
               className="
                 group cursor-pointer overflow-hidden rounded-2xl
                 transition-all duration-300
-                border border-slate-200 bg-white shadow-lg
-                hover:-translate-y-2 hover:shadow-2xl
-                dark:bg-white/5 dark:border-white/10 dark:shadow-none
+                border border-borderLight bg-surfaceLight shadow-lg
+                hover:-translate-y-2 hover:shadow-2xl hover:border-brandGold
+                dark:bg-surfaceDark dark:border-borderDark dark:shadow-none
+                dark:hover:border-brandAccent
               "
             >
               {/* IMAGE */}
@@ -64,7 +65,7 @@ const BlogSection = () => {
                 />
 
                 <div className="absolute top-4 left-4">
-                  <span className="px-4 py-2 text-xs font-semibold rounded-full bg-indigo-600 text-white">
+                  <span className="px-4 py-2 text-xs font-semibold rounded-full bg-brandDark dark:bg-brandAccent text-white dark:text-brandDark">
                     {blog.category}
                   </span>
                 </div>
@@ -72,25 +73,26 @@ const BlogSection = () => {
 
               {/* CONTENT */}
               <div className="p-6">
-                <p className="mb-3 text-sm text-slate-500 dark:text-white/50">
+                <p className="mb-3 text-sm text-brandNavy/60 dark:text-white/50">
                   {blog.date}
                 </p>
 
                 <h3
                   className="
                     mb-3 text-xl font-bold
-                    text-slate-900 dark:text-white
-                    group-hover:text-indigo-600 transition-colors
+                    text-brandDark dark:text-white
+                    group-hover:text-brandGold dark:group-hover:text-brandAccent 
+                    transition-colors
                   "
                 >
                   {blog.title}
                 </h3>
 
-                <p className="mb-4 text-sm leading-relaxed line-clamp-3 text-slate-600 dark:text-white/70">
+                <p className="mb-4 text-sm leading-relaxed line-clamp-3 text-brandNavy dark:text-white/70">
                   {blog.shortDescription}
                 </p>
 
-                <div className="flex items-center gap-2 text-indigo-600 font-semibold text-sm group-hover:gap-3 transition-all">
+                <div className="flex items-center gap-2 text-brandGold dark:text-brandAccent font-semibold text-sm group-hover:gap-3 transition-all">
                   Read More <ArrowRight size={16} />
                 </div>
               </div>

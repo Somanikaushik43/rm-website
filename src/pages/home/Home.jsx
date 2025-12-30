@@ -5,9 +5,7 @@ import React from "react";
 import BackgroundGrid from "../../component/common/BackgroundGrid";
 import EnhancedAuditHero from "./EnhancedAuditHero";
 import HeroSection from "./HeroSection";
-import DeloitteHero from "./DeloitteHero";
-import HeaderBlend from "./HeaderBlend";
-import useLenis from "./useLenis";
+
 // sections
 import Features from "./Features";
 import RiskCompliance from "./RiskCompliance";
@@ -23,7 +21,6 @@ import AuditService from "./AuditService";
 import CTASection from "./CTASections";
 
 export default function Home() {
-  useLenis();
   return (
     <main
       className="
@@ -35,9 +32,9 @@ export default function Home() {
       {/* 1. CINEMATIC INTRO EXPERIENCE (400vh scroll) */}
       {/* <EnhancedAuditHero /> */}
 
-      <HeaderBlend/>
+      {/* <HeaderBlend/>
 
-      <DeloitteHero/>
+      <DeloitteHero/> */}
 
      
 
@@ -64,8 +61,12 @@ export default function Home() {
         {/* VALUE DIFFERENTIATORS */}
         <ValueDifferentiators />
 
+        <BlogSection/>
+
         {/* WHY RISKMAN */}
         <WhyRiskman />
+
+
 
         {/* STATS */}
         <StatsSection />
@@ -84,3 +85,5 @@ export default function Home() {
     </main>
   );
 }
+
+

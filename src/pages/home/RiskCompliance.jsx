@@ -42,8 +42,8 @@ const RiskCompliance = () => {
     <section
       className="
         transition-colors duration-300
-        bg-orange-50/40
-        dark:bg-[#06071B]
+        bg-bgLight
+        dark:bg-bgDark
         py-20 md:py-28
       "
     >
@@ -54,17 +54,17 @@ const RiskCompliance = () => {
             <img
               src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&q=80&w=800"
               alt="Risk & Compliance"
-              className="w-full h-full min-h-[520px] lg:min-h-[650px] rounded-3xl object-cover shadow-2xl"
+              className="w-full h-full min-h-[520px] lg:min-h-[650px] rounded-3xl object-cover shadow-2xl ring-1 ring-borderLight dark:ring-borderDark"
             />
           </div>
 
           {/* RIGHT – CONTENT */}
           <div>
-            <p className="mb-4 text-sm tracking-wider text-stone-500 dark:text-white/50">
+            <p className="mb-4 text-sm tracking-wider uppercase font-semibold text-brandNavy dark:text-brandAccent">
               Key Risk & Compliance
             </p>
 
-            <h2 className="mb-6 text-3xl md:text-4xl font-semibold leading-tight text-stone-900 dark:text-white">
+            <h2 className="mb-6 text-3xl md:text-4xl font-bold leading-tight text-brandDark dark:text-white">
               Managing Risk,
               <br />
               Ensuring Total
@@ -72,7 +72,7 @@ const RiskCompliance = () => {
               Compliance
             </h2>
 
-            <p className="mb-12 text-base leading-relaxed text-stone-600 dark:text-white/70">
+            <p className="mb-12 text-base leading-relaxed text-brandNavy dark:text-white/70">
               Explore tailored risk and compliance solutions that safeguard
               operations, meet regulations, and strengthen enterprise-wide
               accountability and control.
@@ -89,27 +89,28 @@ const RiskCompliance = () => {
                     className="
                       group cursor-pointer
                       transition-all duration-300
+                      hover:translate-y-[-4px]
                     "
                   >
                     <div
                       className="
                         flex items-center justify-center w-16 h-16 mb-4
-                        rounded-2xl 
-                        bg-orange-600 text-white
-                        dark:bg-indigo-600 dark:text-white
-                        transition-colors duration-300
-                        group-hover:bg-orange-700
-                        dark:group-hover:bg-indigo-500
+                        rounded-2xl shadow-lg
+                        bg-brandDark text-white
+                        dark:bg-brandAccent dark:text-brandDark
+                        transition-all duration-300
+                        group-hover:bg-brandGold group-hover:text-white group-hover:shadow-xl
+                        dark:group-hover:bg-brandDark dark:group-hover:text-white
                       "
                     >
                       <Icon size={28} />
                     </div>
 
-                    <h3 className="mb-3 text-xl font-semibold text-stone-900 dark:text-white">
+                    <h3 className="mb-3 text-xl font-semibold text-brandDark dark:text-white transition-colors duration-300">
                       {service.title}
                     </h3>
 
-                    <p className="text-sm leading-relaxed text-stone-600 dark:text-white/70">
+                    <p className="text-sm leading-relaxed text-brandNavy dark:text-white/70 transition-colors duration-300">
                       {service.description}
                     </p>
                   </div>

@@ -40,11 +40,11 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-orange-50/40 dark:bg-[#06071B] text-white">
+    <footer className="bg-surfaceLight dark:bg-surfaceDark text-brandDark dark:text-white border-t border-borderLight dark:border-borderDark transition-colors duration-300">
       <div className="max-w-[1280px] mx-auto px-6 sm:px-8 md:px-10 lg:px-12 py-16">
         
         {/* Top Section: Logo + Newsletter */}
-        <div className="flex flex-col items-start justify-between gap-12 pb-16 border-b lg:flex-row border-gray-600">
+        <div className="flex flex-col items-start justify-between gap-12 pb-16 border-b border-borderLight dark:border-borderDark lg:flex-row">
           
           {/* Left: Logo + Description */}
           <div className="max-w-sm">
@@ -52,11 +52,16 @@ export default function Footer() {
               <img
                 src="./rm.png"
                 alt="RiskMan"
-                className="h-10 mb-6 transition-transform hover:scale-105"
+                className="h-10 mb-6 transition-transform hover:scale-105 dark:hidden"
+              />
+              <img
+                src="./riskman-logo-white.svg"
+                alt="RiskMan"
+                className="h-10 mb-6 transition-transform hover:scale-105 hidden dark:block"
               />
             </Link>
             
-            <p className="text-sm leading-relaxed text-gray-300">
+            <p className="text-sm leading-relaxed text-brandNavy dark:text-gray-400">
               RiskMan Consulting provides expert advisory in audit, risk, compliance, 
               cybersecurity, and digital transformation — helping businesses grow with confidence.
             </p>
@@ -65,14 +70,14 @@ export default function Footer() {
             <div className="mt-6 space-y-2">
               <a 
                 href="mailto:info@riskman.in" 
-                className="flex items-center gap-2 text-sm text-gray-300 transition-colors hover:text-white"
+                className="flex items-center gap-2 text-sm text-brandNavy dark:text-gray-400 transition-colors hover:text-brandPrimary dark:hover:text-brandAccent"
               >
                 <Mail size={16} />
                 <span>info@riskman.in</span>
               </a>
               <a 
                 href="tel:+911234567890" 
-                className="flex items-center gap-2 text-sm text-gray-300 transition-colors hover:text-white"
+                className="flex items-center gap-2 text-sm text-brandNavy dark:text-gray-400 transition-colors hover:text-brandPrimary dark:hover:text-brandAccent"
               >
                 <Phone size={16} />
                 <span>+91 123 456 7890</span>
@@ -88,7 +93,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="flex items-center justify-center w-10 h-10 transition-colors bg-gray-700 rounded hover:bg-indigo-600"
+                  className="flex items-center justify-center w-10 h-10 transition-colors bg-brandPrimary/10 dark:bg-brandAccent/20 text-brandPrimary dark:text-brandAccent rounded-lg hover:bg-brandPrimary/20 dark:hover:bg-brandAccent/30"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -100,17 +105,21 @@ export default function Footer() {
 
           {/* Right: Newsletter */}
           <div className="w-full max-w-md">
+            <h3 className="text-lg font-semibold mb-3 text-brandDark dark:text-white">Subscribe to Our Newsletter</h3>
+            <p className="text-sm text-brandNavy dark:text-gray-400 mb-4">
+              Get the latest insights and updates delivered to your inbox.
+            </p>
             <div className="flex flex-col gap-3 sm:flex-row">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="example@gmail.com"
-                className="flex-1 px-4 py-3 text-sm text-white transition-colors bg-gray-700 border border-gray-600 rounded focus:outline-none focus:border-indigo-500"
+                className="flex-1 px-4 py-3 text-sm text-brandDark dark:text-white bg-bgLight dark:bg-bgDark border border-borderLight dark:border-borderDark rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brandPrimary dark:focus:ring-brandAccent"
               />
               <motion.button
                 onClick={handleNewsletterSubmit}
-                className="px-8 py-3 text-sm font-semibold text-white transition-colors bg-indigo-600 rounded hover:bg-indigo-700"
+                className="px-8 py-3 text-sm font-semibold text-white bg-gradient-to-r from-brandPrimary via-brandNavy to-brandDark dark:bg-gradient-to-r dark:from-brandAccent dark:via-brandGold dark:to-yellow-500 dark:text-brandDark rounded-lg hover:shadow-lg transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -125,107 +134,64 @@ export default function Footer() {
           
           {/* Services */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold">Services</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link to="/services/risk-advisory" className="transition-colors hover:text-white">Risk Advisory</Link></li>
-              <li><Link to="/services/consulting" className="transition-colors hover:text-white">Consulting</Link></li>
-              <li><Link to="/services/esg-advisory" className="transition-colors hover:text-white">ESG Advisory</Link></li>
-              <li><Link to="/services/financial-advisory" className="transition-colors hover:text-white">Financial Advisory</Link></li>
-              <li><Link to="/services/forensic-investigation" className="transition-colors hover:text-white">Forensic & Investigation</Link></li>
-              <li><Link to="/services/cybersecurity" className="transition-colors hover:text-white">Cyber Security</Link></li>
-              <li><Link to="/services/it-risk-management" className="transition-colors hover:text-white">IT Risk Management</Link></li>
+            <h4 className="mb-4 text-sm font-semibold text-brandDark dark:text-white uppercase tracking-wider">Services</h4>
+            <ul className="space-y-2 text-sm text-brandNavy dark:text-gray-400">
+              <li><Link to="/services/risk-advisory" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Risk Advisory</Link></li>
+              <li><Link to="/services/consulting" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Consulting</Link></li>
+              <li><Link to="/services/esg-advisory" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">ESG Advisory</Link></li>
+              <li><Link to="/services/financial-advisory" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Financial Advisory</Link></li>
+              <li><Link to="/services/forensic-investigation" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Forensic & Investigation</Link></li>
+              <li><Link to="/services/cybersecurity" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Cyber Security</Link></li>
+              <li><Link to="/services/it-risk-management" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">IT Risk Management</Link></li>
             </ul>
           </div>
 
           {/* Industries */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold">Industries</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link to="/industries/automobiles" className="transition-colors hover:text-white">Automobiles</Link></li>
-              <li><Link to="/industries/banking-insurance" className="transition-colors hover:text-white">Banking & Insurance</Link></li>
-              <li><Link to="/industries/retail-consumer" className="transition-colors hover:text-white">Retail & Consumer</Link></li>
-              <li><Link to="/industries/healthcare" className="transition-colors hover:text-white">Healthcare</Link></li>
-              <li><Link to="/industries/hospitality" className="transition-colors hover:text-white">Hospitality</Link></li>
-              <li><Link to="/industries/media-communication" className="transition-colors hover:text-white">Media & Communication</Link></li>
-              <li><Link to="/industries/education-edtech" className="transition-colors hover:text-white">Education & EdTech</Link></li>
+            <h4 className="mb-4 text-sm font-semibold text-brandDark dark:text-white uppercase tracking-wider">Industries</h4>
+            <ul className="space-y-2 text-sm text-brandNavy dark:text-gray-400">
+              <li><Link to="/industries/automobiles" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Automobiles</Link></li>
+              <li><Link to="/industries/banking-insurance" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Banking & Insurance</Link></li>
+              <li><Link to="/industries/retail-consumer" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Retail & Consumer</Link></li>
+              <li><Link to="/industries/healthcare" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Healthcare</Link></li>
+              <li><Link to="/industries/hospitality" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Hospitality</Link></li>
+              <li><Link to="/industries/media-communication" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Media & Communication</Link></li>
+              <li><Link to="/industries/education-edtech" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Education & EdTech</Link></li>
             </ul>
           </div>
 
           {/* Company */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold">Company</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link to="/about" className="transition-colors hover:text-white">About Us</Link></li>
-              <li><Link to="/about/leadership" className="transition-colors hover:text-white">Leadership Team</Link></li>
-              <li><Link to="/about/careers" className="transition-colors hover:text-white">Careers</Link></li>
-              <li><Link to="/blog" className="transition-colors hover:text-white">Blogs</Link></li>
+            <h4 className="mb-4 text-sm font-semibold text-brandDark dark:text-white uppercase tracking-wider">Company</h4>
+            <ul className="space-y-2 text-sm text-brandNavy dark:text-gray-400">
+              <li><Link to="/about" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">About Us</Link></li>
+              <li><Link to="/about/leadership" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Leadership Team</Link></li>
+              <li><Link to="/about/careers" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Careers</Link></li>
+              <li><Link to="/blog" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Blogs</Link></li>
             </ul>
           </div>
 
           {/* Support */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold">Support</h4>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li><Link to="/contact" className="transition-colors hover:text-white">Contact</Link></li>
-              <li><Link to="/privacy-policy" className="transition-colors hover:text-white">Privacy Policy</Link></li>
-              <li><Link to="/terms" className="transition-colors hover:text-white">Terms of Use</Link></li>
+            <h4 className="mb-4 text-sm font-semibold text-brandDark dark:text-white uppercase tracking-wider">Support</h4>
+            <ul className="space-y-2 text-sm text-brandNavy dark:text-gray-400">
+              <li><Link to="/contact" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Contact</Link></li>
+              <li><Link to="/privacy-policy" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Terms of Use</Link></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col items-center justify-between gap-4 pt-8 mt-12 text-sm text-gray-400 border-t border-gray-600 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 pt-8 mt-12 text-sm text-brandNavy dark:text-gray-400 border-t border-borderLight dark:border-borderDark md:flex-row">
           <p>RiskMan Consulting © {new Date().getFullYear()}</p>
           <div className="flex gap-6">
-            <Link to="/privacy-policy" className="transition-colors hover:text-white">Privacy Policy</Link>
-            <Link to="/terms" className="transition-colors hover:text-white">Terms of Use</Link>
-            <Link to="/contact" className="transition-colors hover:text-white">Contact</Link>
+            <Link to="/privacy-policy" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Privacy Policy</Link>
+            <Link to="/terms" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Terms of Use</Link>
+            <Link to="/contact" className="transition-colors hover:text-brandPrimary dark:hover:text-brandAccent">Contact</Link>
           </div>
         </div>
 
-      </div>
-
-      {/* Cityscape Silhouette at Bottom */}
-      <div className="relative h-24 overflow-hidden bg-[#1a1a1a]">
-        {/* Checkered pattern base */}
-        <div className="absolute bottom-0 left-0 right-0 h-8">
-          <div className="grid h-full grid-cols-32 gap-0">
-            {[...Array(32)].map((_, i) => (
-              <div key={i} className={`${i % 2 === 0 ? 'bg-black' : 'bg-white'} opacity-80`}></div>
-            ))}
-          </div>
-        </div>
-        
-        {/* City buildings silhouette */}
-        <svg 
-          viewBox="0 0 1000 100" 
-          className="absolute bottom-8 left-0 w-full h-16 text-white"
-          preserveAspectRatio="none"
-        >
-          <rect x="0" y="40" width="30" height="60" fill="currentColor" />
-          <rect x="35" y="55" width="35" height="45" fill="currentColor" />
-          <rect x="75" y="30" width="40" height="70" fill="currentColor" />
-          <rect x="120" y="50" width="25" height="50" fill="currentColor" />
-          <rect x="150" y="35" width="45" height="65" fill="currentColor" />
-          <rect x="200" y="60" width="30" height="40" fill="currentColor" />
-          <rect x="235" y="20" width="50" height="80" fill="currentColor" />
-          <rect x="290" y="45" width="35" height="55" fill="currentColor" />
-          <rect x="330" y="55" width="30" height="45" fill="currentColor" />
-          <rect x="365" y="35" width="40" height="65" fill="currentColor" />
-          <rect x="410" y="25" width="45" height="75" fill="currentColor" />
-          <rect x="460" y="50" width="35" height="50" fill="currentColor" />
-          <rect x="500" y="15" width="55" height="85" fill="currentColor" />
-          <rect x="560" y="45" width="30" height="55" fill="currentColor" />
-          <rect x="595" y="30" width="40" height="70" fill="currentColor" />
-          <rect x="640" y="55" width="35" height="45" fill="currentColor" />
-          <rect x="680" y="40" width="45" height="60" fill="currentColor" />
-          <rect x="730" y="20" width="40" height="80" fill="currentColor" />
-          <rect x="775" y="50" width="30" height="50" fill="currentColor" />
-          <rect x="810" y="35" width="45" height="65" fill="currentColor" />
-          <rect x="860" y="55" width="35" height="45" fill="currentColor" />
-          <rect x="900" y="30" width="40" height="70" fill="currentColor" />
-          <rect x="945" y="45" width="30" height="55" fill="currentColor" />
-        </svg>
       </div>
 
       {/* Scroll to Top Button */}
@@ -233,7 +199,7 @@ export default function Footer() {
         {showScrollTop && (
           <motion.button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="fixed z-50 p-4 text-white transition-all duration-300 rounded-full shadow-2xl bg-indigo-600 hover:bg-indigo-700 bottom-6 right-6 md:bottom-8 md:right-8"
+            className="fixed z-50 p-4 text-white transition-all duration-300 rounded-full shadow-2xl bg-gradient-to-r from-brandPrimary to-brandNavy dark:bg-gradient-to-r dark:from-brandAccent dark:to-brandGold dark:text-brandDark hover:shadow-brandPrimary/50 dark:hover:shadow-brandAccent/50 bottom-6 right-6 md:bottom-8 md:right-8"
             initial={{ opacity: 0, scale: 0, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0, y: 20 }}
